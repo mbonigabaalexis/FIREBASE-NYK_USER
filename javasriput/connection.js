@@ -1,17 +1,18 @@
 
 // button click
-document.getElementById("btnsubmit").addEventListener('click', function (e) {
-    e.preventDefault();
+document.getElementById("btnsubmit").addEventListener('click', async function (e) {
+    e.preventDefault ();
     // input value
     let fname = document.getElementById("fname").value;
     let lname = document.getElementById("lname").value;
 
-    // store data base
+    // Add  data in Firebase
     let user = { firstName: fname, lastName: lname }
-    db.collection('users').add(user);
+    await db.collection('users').add(user);
+    location.reload();
 
 });
-//
+// READ DATA AND VIEW IN PAGE 
 
 let userList = document.getElementById('user_list');
 
